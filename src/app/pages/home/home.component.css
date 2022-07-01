@@ -1,0 +1,46 @@
+#home-page{
+  width: 100%;
+  height: 100%;
+
+}
+
+#home-page-landing{
+  width: 100%;
+  height: 100%;
+  background-image: url("src/assets/home_background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  min-height: 800px;
+}
+
+#landing-right{
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68);
+
+}
+
+#landing-right-content{
+  text-align: right;
+  padding: 1em 1em 1em 1em;
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+}
+
+#landing-right-content h1{
+  font-size: 5em;
+}
+
+#landing-right-content p{
+  font-size: 3em;
+}
+
+#landing-right-content button{
+  font-size: 2em;
+  padding: .5em;
+}
