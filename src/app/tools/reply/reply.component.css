@@ -13,7 +13,7 @@
 #reply-action-bar{
   width: 100%;
   display: grid;
-  grid-template-columns: 3em 1fr;
+  grid-template-columns: 4em 1fr;
   margin-top: 1em;
   direction: rtl;
 }
@@ -49,6 +49,17 @@ input{
 }
 
 .creator-comment{
-  background-color: tomato;
-  color: white;
+  background-color: rgba(47, 211, 47, 0.66);
+  color: black;
+}
+
+button{
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+@media (max-width: 650px) {
+  .creator-comment-container{
+    justify-content: flex-start;
+    text-align: start;
+  }
 }

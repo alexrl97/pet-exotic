@@ -1,4 +1,65 @@
 .action-item{
   margin-left: .5em;
   cursor: pointer;
+  color: rgba(0,130,0,1)
 }
+
+.view-item{
+  text-underline-color: black;
+  color: rgba(0,130,0,1)
+}
+
+.like-number{
+  margin-left: 5em;
+  padding-top: -20em;
+}
+
+mat-card{
+  transform: translate(0%, 5em);
+  margin-top: 5em;
+}
+
+.top-right-button{
+  margin-left: 40%;
+  width: 20%;
+  position: relative;
+  height: 3em;
+  text-align: center;
+}
+
+.follow{
+  background-color: rgba(0,130,0,1);
+}
+
+.delete{
+  background-color: rgb(220,36,36);
+}
+.profile_pic{
+  position: fixed;
+  display: flex;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  top: 6px;
+  transform: translate(12em, 0%);
+}
+
+mat-card-subtitle{
+  width: 15em;
+}
+
+@media (max-width: 550px) {
+  .top-right-button{
+  position: fixed;
+  right: 0;
+  width: 25%;
+  }
+
+  .profile_pic{
+    transform: translate(11em, 0%);
+  }
+}
+
+
+

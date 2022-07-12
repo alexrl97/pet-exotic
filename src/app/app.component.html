@@ -1,14 +1,12 @@
 <div id="nav-bar">
+  <app-header></app-header>
   <div id="nav-bar-content">
-      <div id="nav-bar-right">
-        <div *ngIf = "!loggedIn()" (click)="onLoginClick()" >Login</div>
-        <div *ngIf = "loggedIn() && userHasProfile" class="nav-bar-items">
-          Hello, {{getUsername()}}
-        </div>
-        <div *ngIf = "loggedIn()" (click)="onLogoutClick()" >Logout</div>
-      </div>
+    <h1 id = "current_page"></h1>
+        <button mat-raised-button *ngIf = "!loggedIn()" (click)="onLoginClick()" >Login</button>
+        <button mat-raised-button *ngIf = "loggedIn()" (click)="onLogoutClick()" >Logout</button>
     </div>
-  </div>
+</div>
+
 
 <router-outlet></router-outlet>
 

@@ -21,7 +21,7 @@
   color: white;
   justify-content: center;
   align-items: center;
-  text-shadow: 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68), 0 0 4px rgba(148, 6, 6, 0.68);
+  text-shadow: 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1);
 
 }
 
@@ -43,4 +43,39 @@
 #landing-right-content button{
   font-size: 2em;
   padding: .5em;
+}
+
+button{
+  background-color: rgba(47, 211, 47, 0.66);
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px;
+}
+
+@media (max-width: 550px){
+
+  #home-page-landing{
+    background-position: bottom;
+  }
+
+  #landing-right-content{
+    text-align: left;
+    padding: 1em 1em 1em 1em;
+    font-family: "Times New Roman", Times, serif;
+    font-style: oblique;
+  }
+
+  #landing-right-content h1{
+    font-size: 400%;
+  }
+
+  #landing-right-content p{
+    font-size: 240%;
+  }
+
+  #landing-right-content button{
+    font-size: 160%;
+    padding: .5em;
+  }
+
 }

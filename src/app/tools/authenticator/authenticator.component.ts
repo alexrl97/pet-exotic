@@ -42,7 +42,7 @@ export class AuthenticatorComponent implements OnInit {
           email: email,
           password: password,
           onComplete: (uc) => {
-            alert("Logged in")
+            this.bottomSheetRef.dismiss();
           },
           onFail: (err) => {
             alert(err)

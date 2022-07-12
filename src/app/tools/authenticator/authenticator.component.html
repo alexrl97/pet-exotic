@@ -10,7 +10,7 @@
       <input #loginPassword placeholder="Password" type="password">
       <button
           (click)="onLogin(loginEmail, loginPassword)"
-        mat-flat-button color="warn">Login</button>
+          mat-flat-button color="primary">Login</button>
     </div>
     <div *ngIf="isRegisterState()">
       <input #registerEmail placeholder="EMail">
@@ -18,20 +18,20 @@
       <input #registerConfirmPassword placeholder="Confirm Password" type="password">
       <button
         (click)="onRegisterClick(registerEmail,registerPassword,registerConfirmPassword)"
-        mat-flat-button color="warn">Create</button>
+        mat-flat-button color="primary">Create</button>
     </div>
     <div *ngIf="isForgotPasswordState()">
       <input #resetEmail placeholder="EMail">
       <button
         (click)="onResetClick(resetEmail)"
-        mat-flat-button color="warn">Reset</button>
+        mat-flat-button color="primary">Reset</button>
     </div>
     <mat-card-actions align="end">
-      <button mat-flat-button
+      <button mat-raised-button
             (click)="onForgotPasswordClick()">Forgot Password</button>
-      <button mat-flat-button
+      <button mat-raised-button
             (click)="onCreateAccountClick()">Create Account</button>
-      <button mat-flat-button
+      <button mat-raised-button
             (click)="onLoginClick()">Login</button>
     </mat-card-actions>
   </mat-card>

@@ -1,6 +1,19 @@
+
 <div id="post-feed">
   <app-post *ngFor="let post of posts" [postData]="post"></app-post>
 </div>
 
+
+<div id="button_container">
+<button (click)="getPost('explore')"
+  mat-fab id="explore-button"><mat-icon>explore</mat-icon></button>
+<button (click)="getPost('friends-feed')"
+  mat-fab id="friendsFeed-button"><mat-icon>favorite</mat-icon></button>
+<button (click)="onFriendsClick()"
+  mat-fab id="friends-button"><mat-icon>group</mat-icon></button>
+<button (click)="getPost('profile')"
+  mat-fab id="profile-button"><mat-icon>person_pin</mat-icon></button>
 <button (click) = "onCreatePostClick()"
-  mat-fab color="warn" id="post-button"><mat-icon>add</mat-icon></button>
+  mat-fab id="add-post-button" color="primary"><mat-icon>add</mat-icon></button>
+</div>
+

@@ -3,20 +3,22 @@
 }
 
 textarea{
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 1em;
   resize: none;
   width: 250px;
   min-height: 200px;
   border: none;
   outline: none;
+  color: black;
+  background-color: white;
 }
 
 #post-preview{
   text-align: right;
   margin-top: 1em;
-
 }
+
 #post-preview-image{
   object-fit: cover;
   object-position: center;
@@ -25,3 +27,29 @@ textarea{
   border-radius: 1em;
   border: 1px dashed grey;
 }
+
+.mat-flat-button{
+  background-color: rgba(0,130,0,1);
+  color: white;
+}
+
+insert_photo{
+  margin-top: auto;
+}
+
+mat-icon{
+  padding-top: 0.5em;
+  transform: scale(120%);
+  width: 1.5em;
+}
+
+mat-card{
+  background-color: rgba(200, 255, 200, 1);
+}
+
+@media (max-width: 650px) {
+}
+
+
+
+

@@ -23,7 +23,6 @@ export class CreatePostComponent implements OnInit {
 
   onPostClick(commentInput: HTMLTextAreaElement){
     if(this.selectedImageFile) {
-
       let comment = commentInput.value;
       let postID = this.firestore.genDocId();
       this.storage.upload({
@@ -39,10 +38,13 @@ export class CreatePostComponent implements OnInit {
               comment: comment,
               creatorId: this.auth.getAuth().currentUser.uid,
               imageUrl: downloadUrl,
-              timestamp: FirebaseTSApp.getFirestoreTimestamp()
+              timestamp: FirebaseTSApp.getFirestoreTimestamp(),
+              likes: "0",
+              likedByID:[]
             },
             onComplete: (docId => {
               this.dialog.close();
+              window.location.reload();
             })
           });
         })

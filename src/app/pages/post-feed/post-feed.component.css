@@ -1,12 +1,63 @@
-#post-button{
+button{
   position: fixed;
   bottom: 2em;
   right: 2em;
 }
 
+#explore-button{
+  transform: translate(0%, -480%);
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+#friendsFeed-button{
+  transform: translate(0%, -360%);
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+#friends-button{
+  transform: translate(0%, -240%);
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+#profile-button{
+  transform: translate(0%, -120%);
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+#post-button{
+  background-color: rgba(47, 211, 47, 0.66);
+}
+
+
 #post-feed{
-  max-width: 500px;
-  margin-top: 5em;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 650px) {
+  button{
+    left: 1em;
+    right: 1em;
+  }
+
+  #explore-button{
+    transform: translate(480%, 0%);
+  }
+
+  #friendsFeed-button{
+    transform: translate(360%, 0%);
+  }
+
+  #friends-button{
+    transform: translate(240%, 0%);
+  }
+
+  #profile-button{
+    transform: translate(120%, 0%);
+  }
+
+  #button_container{
+    scale: 50%;
+  }
 }

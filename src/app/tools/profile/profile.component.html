@@ -1,7 +1,14 @@
 <div id="profile" [ngClass]="{'active': show, 'idle': !show}">
   <div id="profile-content">
-    <input #nameInput placeholder = "Name">
-    <textarea #descriptionInput placeholder="Description"></textarea>
-    <button (click)="onContinueClick(nameInput, descriptionInput)" mat-flat-button color = "warn">Continue</button>
+    <h1>Create Pet Profile</h1>
+    <input #nameInput placeholder = "Pet Name" id = "pet_name">
+    <input #animalTypeInput placeholder = "Pet Type" id = "pet_type">
+    <input #animalAgeNumberInput type="number" id="pet_age_number" value="" min="1" max ="300" placeholder="Pet Age (number)">
+    <select #animalAgePeriodInput id="period">
+      <option value="months">year/s</option>
+      <option value="years">month/s</option>
+    </select>
+    <button (click)="onContinueClick(nameInput, animalTypeInput,animalAgeNumberInput, animalAgePeriodInput)"
+            mat-raised-button>Continue</button>
   </div>
 </div>

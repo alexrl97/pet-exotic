@@ -1,4 +1,15 @@
 #email-verification{
   text-align: center;
   margin-top: 8em;
+  position: center;
+
+}
+
+h1{
+  color: white;
+}
+
+button{
+  background-color: rgba(47, 211, 47, 0.66);
+  color: white;
 }

@@ -16,7 +16,7 @@ export class AppComponent {
   isLoggedIn = false;
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  // @ts-ignore
+  private static profilePage = false;
   private static userDocument: UserDocument;
 
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
@@ -25,7 +25,7 @@ export class AppComponent {
         this.auth.checkSignInState(
           {
             whenSignedIn: user => {
-
+              this.router.navigate(["postFeed"]);
             },
             whenSignedOut: user => {
               AppComponent.userDocument = null;
@@ -46,12 +46,24 @@ export class AppComponent {
     return AppComponent.userDocument;
   }
 
+  public static getProfilePage(){
+    return this.profilePage;
+  }
+
+  public static setProfilePage(enabled){
+    this.profilePage = enabled;
+  }
+
   getUsername(){
     try {
       return AppComponent.userDocument.publicName;
     } catch (error){
       return "";
     }
+  }
+
+  public static changeHeaderText(textContent){
+    document.getElementById("current_page").textContent = textContent;
   }
 
   getUserProfile(){
@@ -63,7 +75,7 @@ export class AppComponent {
         this.userHasProfile = result.exists;
         AppComponent.userDocument.userId = this.auth.getAuth().currentUser.uid;
         if(this.userHasProfile){
-          this.router.navigate(["postFeed"])
+          this.router.navigate(["postFeed"]);
         }
       }
     });
@@ -71,6 +83,8 @@ export class AppComponent {
 
   onLogoutClick(){
     this.auth.signOut();
+    document.getElementById("current_page").textContent = "";
+    this.router.navigate([""])
   }
 
   loggedIn() {
@@ -86,4 +100,5 @@ export interface UserDocument {
   publicName: string;
   description: string;
   userId: string;
+  follows: string[];
 }

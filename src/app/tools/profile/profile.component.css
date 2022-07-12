@@ -42,3 +42,28 @@ input,textarea{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
+#pet_age_number{
+  width: 40%;
+}
+#period{
+  width: 20%;
+  height: 3em;
+  margin-right: 8%;
+  margin-left: 2%;
+}
+button{
+  width: 30%;
+  background-color: rgb(14, 122, 14);
+  color: white;
+}
+
+h1{
+  text-align: center;
+  height: 100%;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-shadow: 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(6, 148, 25, 0.68), 0 0 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1);
+}
+
+
