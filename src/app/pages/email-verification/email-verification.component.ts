@@ -12,8 +12,9 @@ export class EmailVerificationComponent implements OnInit {
   auth = new FirebaseTSAuth();
   constructor(private router: Router) { }
 
+  // If the user is signed in and his email is verified the user gets
+  // routed to the homepage. Otherwise a verification email gets send out
   ngOnInit(): void {
-    // @ts-ignore
     if(this.auth.isSignedIn() && !this.auth.getAuth().currentUser.emailVerified){
       this.auth.sendVerificationEmail();
     }
@@ -22,6 +23,7 @@ export class EmailVerificationComponent implements OnInit {
     }
   }
 
+  // Method for resending the verification email
   onResendClick(){
     this.auth.sendVerificationEmail();
   }

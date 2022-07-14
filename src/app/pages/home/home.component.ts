@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Open the loginsheet if the user presses on of the buttons
   onGetStartedClick(){
     this.loginSheet.open(AuthenticatorComponent);
   }

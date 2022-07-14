@@ -18,6 +18,7 @@ export class AuthenticatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Manages the password reset if required
   onResetClick(resetEmail: HTMLInputElement){
     let email = resetEmail.value;
     if(this.isNotEmpty(email)){
@@ -32,6 +33,8 @@ export class AuthenticatorComponent implements OnInit {
     }
   }
 
+  //Dismisses the login sheet if the login was successful and prints out
+  //an error message if the login failed
   onLogin(loginEmail: HTMLInputElement, loginPassword: HTMLInputElement){
     let email = loginEmail.value;
     let password = loginPassword.value;
@@ -52,6 +55,7 @@ export class AuthenticatorComponent implements OnInit {
     }
   }
 
+  //Creates an account for the user in the database
   onRegisterClick(    registerEmail: HTMLInputElement,
                       registerPassword: HTMLInputElement,
                       registerConfirmPassword: HTMLInputElement){
@@ -77,38 +81,47 @@ export class AuthenticatorComponent implements OnInit {
     }
   }
 
+  //Checks if a string aint empty
   isNotEmpty(text: string){
     return text != null && text.length > 0;
   }
 
+  //Checks if the password and confirm password match
   isAMatch(text: string, comparedWith:string){
     return text == comparedWith;
   }
 
+  //Changes state if the user needs a new password
   onForgotPasswordClick(){
     this.state = AuthenticatorCompState.FORGOT_PASSWORD;
   }
 
+  //Changes state if the user registers
   onCreateAccountClick(){
     this.state = AuthenticatorCompState.REGISTER;
   }
 
+  //Changes state if the user logs in
   onLoginClick(){
     this.state = AuthenticatorCompState.LOGIN;
   }
 
+  //Returns if the user is in the login stage
   isLoginState(){
     return this.state == AuthenticatorCompState.LOGIN;
   }
 
+  //Returns if the user is in the registring stage
   isRegisterState(){
     return this.state == AuthenticatorCompState.REGISTER;
   }
 
+  //Returns if the user is in the forgot password stage
   isForgotPasswordState(){
     return this.state == AuthenticatorCompState.FORGOT_PASSWORD;
   }
 
+  //Returns current state
   getStateText(){
     switch (this.state){
       case AuthenticatorCompState.LOGIN:
@@ -122,6 +135,7 @@ export class AuthenticatorComponent implements OnInit {
 
 }
 
+//Enum for authenticator states
 export enum AuthenticatorCompState{
   LOGIN,
   REGISTER,

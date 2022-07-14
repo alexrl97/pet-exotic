@@ -20,6 +20,7 @@ export class AppComponent {
   private static userDocument: UserDocument;
   private static timeout = 10;
 
+  //forwards the user to the according pages evaluating his login state
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
     this.auth.listenToSignInStateChanges(
       user => {
@@ -43,22 +44,27 @@ export class AppComponent {
     );
   }
 
+  //returns the user document for access in other components
   public static getUserDocument(){
     return AppComponent.userDocument;
   }
 
+  //returns if the user is currently on the Posts/Profile page
   public static getProfilePage(){
     return this.profilePage;
   }
 
+  //return the public timeout in milliseconds waiting for content to load
   public static getTimeout(){
     return this.timeout;
   }
 
+  //makes it accessiable to all components if the user is on the profile page
   public static setProfilePage(enabled){
     this.profilePage = enabled;
   }
 
+  //returns the username
   getUsername(){
     try {
       return AppComponent.userDocument.publicName;
@@ -67,10 +73,12 @@ export class AppComponent {
     }
   }
 
+  //changes the header text according to the section the user selected
   public static changeHeaderText(textContent){
     document.getElementById("current_page").textContent = textContent;
   }
 
+  //routes if the user succesfully created a profile
   getUserProfile(){
     this.firestore.listenToDocument({
       name: "Getting Document",    // @ts-ignore
@@ -86,21 +94,25 @@ export class AppComponent {
     });
   }
 
+  //handels the logout
   onLogoutClick(){
     this.auth.signOut();
     document.getElementById("current_page").textContent = "";
     this.router.navigate([""])
   }
 
+  //returns if the user is currently logged in
   loggedIn() {
     return this.auth.isSignedIn();
   }
 
+  //open the loginSheet when the user clicks on "login"
   onLoginClick(){
     this.loginSheet.open(AuthenticatorComponent);
   }
 }
 
+// Exports the UserDocument interface
 export interface UserDocument {
   publicName: string;
   description: string;

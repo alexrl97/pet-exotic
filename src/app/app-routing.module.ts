@@ -4,6 +4,7 @@ import {HomeComponent} from "./pages/home/home.component";
 import {EmailVerificationComponent} from "./pages/email-verification/email-verification.component";
 import {PostFeedComponent} from "./pages/post-feed/post-feed.component";
 
+//Component paths
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "emailVerification", component: EmailVerificationComponent},

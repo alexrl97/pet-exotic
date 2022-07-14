@@ -25,6 +25,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Handels the "Continue" click in the profile creation. Checks the input values and creates a profile
+  //if they match the requiremets
   onContinueClick(nameInput: HTMLInputElement, animalTypeInput: HTMLInputElement, animalAgeNumberInput: HTMLInputElement, animalAgePeriodInput: HTMLSelectElement) {
     let name = nameInput.value;
     let animalType = animalTypeInput.value;

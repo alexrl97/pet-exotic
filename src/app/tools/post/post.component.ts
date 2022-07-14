@@ -24,12 +24,16 @@ export class PostComponent implements OnInit {
 
   constructor(private dialog: MatDialog) { }
 
+  //On initialisation the posts are getting configured
   ngOnInit(): void {
       this.getCreatorInfo();
       this.configureButtons();
       this.configureMargins();
   }
 
+  //Sets all follow buttons to "unfollow" and changes the color if the user
+  //already follows those profiles
+  //Furthermore it sets a delete button if the user is on the "Posts" page
   configureButtons(){
     let postData = this.postData;
     let postComponent = this;
@@ -56,6 +60,8 @@ export class PostComponent implements OnInit {
 
   }
 
+  //Reduces the card margins if the user is on the friends page for compact display
+  //of all follows
   configureMargins(){
     let postData = this.postData
     setTimeout(function (){
@@ -65,13 +71,16 @@ export class PostComponent implements OnInit {
     }, AppComponent.getTimeout());
   }
 
+  //Setter for canFollow
   setCanFollow(canFollow){
     this.canFollow = canFollow
   }
+  //Setter for canDelete
   setCanDelete(canDelete){
     this.canDelete = canDelete;
   }
 
+  //Deletes the posts from the db and the current page if the user confirms the deletion
   onDeleteClick(postId){
     if(confirm("Are you sure you want to delete this post?"))
       this.firestore.delete({
@@ -82,6 +91,7 @@ export class PostComponent implements OnInit {
       });
   }
 
+  //Follow Button color & text changes
   setFollowButtons(){
 
     let postData = this.postData;
@@ -98,6 +108,8 @@ export class PostComponent implements OnInit {
     }, AppComponent.getTimeout());
   }
 
+  //If the user follows/unfollows somebody it changes the button content according
+  //to the users action
   onFollowClick(creatorId){
 
     let follows =  this.getFollows();
@@ -116,7 +128,7 @@ export class PostComponent implements OnInit {
         this.updateFollows(this.getUserId(), follows);
   }
 
-
+  //Updates follows in the database
   updateFollows(currentUserID, follows){
 
     this.firestore.update({
@@ -130,6 +142,7 @@ export class PostComponent implements OnInit {
     });
   }
 
+  //Adjusts the buttons color&text according to the user actions
   updateFollowButtons(creatorId, follow){
 
     this.firestore.getCollection({
@@ -154,19 +167,21 @@ export class PostComponent implements OnInit {
     });
   }
 
-
+  //returns the followers
   getFollows(){
     return AppComponent.getUserDocument().follows;
   }
-
+  // returns the current user id
   getUserId(){
     return AppComponent.getUserDocument().userId;
   }
 
+  //Opens the comment section for the selected post
   onReplyClick(){
     this.dialog.open(ReplyComponent, {data: this.postData.postId});
   }
 
+  //De/Increases the likes of the choosen post
   onLikeClick(postID){
     this.firestore.getDocument({
       path: ["Posts", postID],
@@ -177,6 +192,8 @@ export class PostComponent implements OnInit {
     });
   }
 
+  //Adjusts the likes of the liked/deliked post
+  //Decrease when it has been liked before and increase when it has not been liked yet
   adjustLikes(postID, likes) {
     let newLikeAmount;
     let likeIDs = this.postData.likedByID;
@@ -216,6 +233,7 @@ export class PostComponent implements OnInit {
     });
   }
 
+  //Returns creator info for the post
   getCreatorInfo(){
     this.firestore.getDocument({
       path: ["Users", this.postData.creatorId],

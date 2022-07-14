@@ -20,7 +20,8 @@ export class CreatePostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  // Handels the upload when a Post is getting posted
+  // Posts without photos are not allowed, while posts without text get trough
   onPostClick(commentInput: HTMLTextAreaElement){
     if(this.selectedImageFile) {
       let comment = commentInput.value;
@@ -55,7 +56,8 @@ export class CreatePostComponent implements OnInit {
     }
   }
 
-
+  //Handels the preview for the photo set for an upload, so the user
+  //has an additional confirmation of what ge actually posts
   onPhotoSelected(photoSelector: HTMLInputElement){
     this.selectedImageFile = photoSelector.files[0];
     if(!this.selectedImageFile) return;

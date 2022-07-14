@@ -3,7 +3,6 @@ import { MatDialog } from "@angular/material/dialog";
 import { CreatePostComponent } from "../../tools/create-post/create-post.component";
 import {FirebaseTSFirestore, Limit, OrderBy, Where} from "firebasets/firebasetsFirestore/firebaseTSFirestore";
 import {AppComponent} from "../../app.component";
-import {PostComponent} from "../../tools/post/post.component";
 
 @Component({
   selector: 'app-post-feed',
@@ -19,14 +18,17 @@ export class PostFeedComponent implements OnInit {
 
   constructor(private dialog: MatDialog) { }
 
+  //On default the website opens up the explore page
   ngOnInit(): void {
     this.getPost("explore");
   }
 
+  //Opens the dialog to add a post
   onCreatePostClick(){
     this.dialog.open(CreatePostComponent);
   }
 
+  //Displays the posts matching the choosen feedtype
   public getPost(feedType){
 
     let idFilter = [];
@@ -50,6 +52,7 @@ export class PostFeedComponent implements OnInit {
     }
   }
 
+  //Filters the posts matching the choosen feedtype
   displayFilteredPosts(idFilter){
 
     let hasFollowers = true;
@@ -79,7 +82,7 @@ export class PostFeedComponent implements OnInit {
     });
   }
 
-
+   //Displays all Posts
   displayAllPosts(){
     this.firestore.getCollection({
       path: ["Posts"],
@@ -103,6 +106,8 @@ export class PostFeedComponent implements OnInit {
     });
   }
 
+  // Chooses on Post for each friend and displays them in a compact list
+  // Where the user then be able to manage his follows
   onFriendsClick(){
 
     let creators = [];
@@ -136,7 +141,8 @@ export class PostFeedComponent implements OnInit {
     });
   }
 
-
+  //Manages the buttons colors and let's the active button get displayed with a
+  //red background while the other are green
   setActiveButtonColours(feedType){
     switch (feedType) {
 
@@ -178,7 +184,7 @@ export class PostFeedComponent implements OnInit {
     }
   }
 }
-
+//Exports the post data needed in the post component
 export interface PostData {
   comment?: string;
   creatorId: string;

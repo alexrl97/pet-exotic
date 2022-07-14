@@ -14,10 +14,12 @@ export class ReplyComponent implements OnInit {
   comments: Comment[] = [];
   constructor(@Inject(MAT_DIALOG_DATA) private postId: string) { }
 
+  //Returns the choosen posts comments on initialisation
   ngOnInit(): void {
     this.getComments();
   }
 
+  //unshifts the comments of the choosen post and displays them for the user
   getComments(){
     this.firestore.listenToCollection({
       name: "Post Comments",
@@ -35,6 +37,7 @@ export class ReplyComponent implements OnInit {
     });
   }
 
+  //Returns if the comment got created by the creator for the style settings
   isCommentCreator(comment: Comment){
     try {
       return comment.creatorId == AppComponent.getUserDocument().userId;
@@ -43,6 +46,7 @@ export class ReplyComponent implements OnInit {
     }
   }
 
+  //Creates a new comment in path of the post if a new comment is getting added by the user
   onSendClick(commentInput: HTMLInputElement){
     if(!(commentInput.value.length > 0)) return;
     this.firestore.create({
@@ -61,6 +65,7 @@ export class ReplyComponent implements OnInit {
   }
 }
 
+//Exports the Comment interface
 export interface Comment {
   creatorId: string;
   creatorName: string;
