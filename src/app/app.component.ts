@@ -18,6 +18,7 @@ export class AppComponent {
   userHasProfile = true;
   private static profilePage = false;
   private static userDocument: UserDocument;
+  private static timeout = 10;
 
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
     this.auth.listenToSignInStateChanges(
@@ -48,6 +49,10 @@ export class AppComponent {
 
   public static getProfilePage(){
     return this.profilePage;
+  }
+
+  public static getTimeout(){
+    return this.timeout;
   }
 
   public static setProfilePage(enabled){

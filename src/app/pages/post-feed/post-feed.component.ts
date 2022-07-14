@@ -43,7 +43,7 @@ export class PostFeedComponent implements OnInit {
           idFilter =AppComponent.getUserDocument().follows;
         }
         currentComponent.displayFilteredPosts(idFilter);
-      }, 1);
+      }, AppComponent.getTimeout());
     }
     else{
       this.displayAllPosts();

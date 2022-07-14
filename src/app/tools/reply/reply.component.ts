@@ -22,7 +22,7 @@ export class ReplyComponent implements OnInit {
     this.firestore.listenToCollection({
       name: "Post Comments",
       path: ["Posts", this.postId, "PostComments"],
-      where: [new OrderBy("timestamp", "asc")],
+      where: [new OrderBy("timestamp", "desc")],
       onUpdate:(result) => {
         result.docChanges().forEach(
           postCommentDoc => {

@@ -35,7 +35,12 @@ export class PostComponent implements OnInit {
     let postComponent = this;
 
     setTimeout(function (){
-      let userId = AppComponent.getUserDocument().userId;
+      let userId;
+      try {
+        userId = AppComponent.getUserDocument().userId;
+      }catch (e){
+        window.location.reload();
+      }
         for (var i = 0; i < postData.likedByID.length; i++) {
           if (postData.likedByID[i] === userId && !postData.hidden) {
             document.getElementById("likeIcon" + postData.postId).style.color = "rgba(200,0,0,1)";
@@ -46,9 +51,9 @@ export class PostComponent implements OnInit {
       if(userId == postData.creatorId && AppComponent.getProfilePage())
         postComponent.setCanDelete(true);
 
-    }, 1);
+      postComponent.setFollowButtons();
+    }, AppComponent.getTimeout());
 
-    this.setFollowButtons();
   }
 
   configureMargins(){
@@ -57,7 +62,7 @@ export class PostComponent implements OnInit {
       if(postData.hidden) {
         document.getElementById("card" + postData.postId).style.marginTop = "2em";
       }
-    }, 1);
+    }, AppComponent.getTimeout());
   }
 
   setCanFollow(canFollow){
@@ -90,7 +95,7 @@ export class PostComponent implements OnInit {
           document.getElementById("follow"+postData.postId).style.backgroundColor = "rgb(220,36,36)";
         }
       }
-    }, 1);
+    }, AppComponent.getTimeout());
   }
 
   onFollowClick(creatorId){
